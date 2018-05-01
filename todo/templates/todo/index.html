@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>ToDo App</title>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+		<!-- Custom Font and CSS -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link rel="stylesheet" href="{% static 'todo/styles.css' %}" />
+
+
+	</head>
+	<body>
+
+		<!-- Cover -->
+		<section id="cover">
+			<div id="cover-caption">
+				<div class="container">
+					<!-- Main Header -->
+					<div class="col-sm-12">
+						<h1 class="display-3">Pensieve</h1>
+						<h5>Look into your Pensieve and remember all the tasks you have to do! Clicking a task will mark it as completed. Don't forget to delete completed tasks so you can add more!</h5>
+						<!-- Input Form for Tasks, POST method -->
+						<form class="justify-content-center" action="{% url 'add' %}" method="POST" role="form">
+							{% csrf_token %}
+							<div class="form-group">
+								<div class="input-group">
+								  {{ form.text }}
+								  <span class="input-group-btn">
+									  <button type="submit" class="btn btn-default" id="add-btn">ADD</button>
+								  </span>
+								</div>
+							</div>
+						</form>
+					</div>
+
+					<!-- Buttons Row -->
+					<div class="row">
+						<div class="col-sm-12">
+							<!-- Delete Completed Button -->
+							<a href="{% url 'deletecomplete' %}">
+									<button type="button" class="btn btn-warning">OBLIVIATE COMPLETED TASKS</button>
+							</a>
+							<!-- Delete All Button -->
+							<a href="{% url 'deleteall' %}">
+								<button type="button" class="btn btn-danger">OBLIVIATE ALL TASKS</button>
+							</a>
+						</div>
+					</div>
+
+					<br> 
+
+					<!-- Task List -->
+					<div class="list">
+						<div class="col-sm-12">
+							<ul>
+								<!-- Iterate through tasks passed through todo_list -->
+								{% for todo in todo_list %}
+									<!-- If task is complete -->
+									{% if todo.complete %}
+										<li class="list-group-item todo-completed">{{ todo.text }}</li>
+									<!-- If task isn't complete -->
+									{% else %}
+										<a href="{% url 'complete' todo.id %}"><li class="list-group-item">{{ todo.text }}</li></a>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer id="footer-main">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					Coded by Preetham Jayaram
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

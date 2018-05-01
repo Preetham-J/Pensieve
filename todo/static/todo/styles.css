@@ -1,0 +1,36 @@
+html,
+body {
+	height: 100%;
+}
+
+img {
+	max-width: 100%;
+}
+
+/* Cover */
+#cover {
+	background: #222 url('img/pensieve_dark.png') top center no-repeat;
+	background-size: cover;
+	color: white;
+	height: 100%;
+	text-align: center;
+	display:flex;
+	align-items: center;
+}
+#cover-caption {
+	width: 100%;
+}
+
+/* Task Completed */
+.todo-completed {
+	text-decoration: line-through;
+	background: rgba(149, 165, 166, 0.6);
+}
+
+/* Footer */
+#footer-main {
+	background: #222;
+	color: white;
+	font-size: 0.8rem;
+	padding: 2.5rem 0;
+}
