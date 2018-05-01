@@ -9,13 +9,13 @@ project will definitely come in handy for my future projects!
 
 ## Screenshots
 Main Page:
-![alt text](/screenshots/mainpage.jpg?raw=true "Main page")
+![alt text](/screenshots/mainpage.JPG?raw=true "Main page")
 Adding tasks:
-![alt text](/screenshots/addingtasks.jpg?raw=true "Adding tasks")
+![alt text](/screenshots/addingtasks.JPG?raw=true "Adding tasks")
 Marking tasks as complete:
-![alt text](/screenshots/completingtasks.jpg?raw=true "Marking tasks as complete")
+![alt text](/screenshots/completingtasks.JPG?raw=true "Marking tasks as complete")
 Deleting completed tasks:
-![alt text](/screenshots/deletecomplete.jpg?raw=true "Deleting completed tasks")
+![alt text](/screenshots/deletecomplete.JPG?raw=true "Deleting completed tasks")
 
 ## How to Use
 To use all the files, make sure you have the following installed: Python, Django.
