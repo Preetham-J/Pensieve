@@ -3,7 +3,7 @@ from django.views.decorators.http import require_POST
 
 #Import models and forms 
 from .models import Todo
-from .forms import TodoForm, NewTodoForm
+from .forms import TodoForm
 
 #Main request (landing page)
 def index(request):
@@ -11,7 +11,7 @@ def index(request):
 	todo_list = Todo.objects.order_by('id')
 	
 	#Create form
-	form = NewTodoForm()
+	form = TodoForm()
 	
 	#Pass query to HTML and render
 	context = {'todo_list' : todo_list, 'form' : form}
@@ -21,7 +21,7 @@ def index(request):
 @require_POST
 def addTodo(request):
 	#Create form with POST
-	form = NewTodoForm(request.POST)
+	form = TodoForm(request.POST)
 
 	#Query count of tasks in database
 	count = Todo.objects.all().count()
